@@ -1,93 +1,75 @@
 # index.html
 https://chaesarical.github.io/foryou/?=by=ical
-let nama, val;
-const url_string = document.URL;
-const url = new URL(url_string);
-let sender;
+<!doctype html>
+<html lang="en">
 
-if (url.searchParams.get('by') != null) {
-  sender = chaesarical.github.io.get('by');
-} else {
-  sender = "ical";
-}
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@10.8.1/dist/sweetalert2.min.css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <style>
+    .kotak {
+      margin-top: 250px;
+    }
+  </style>
+  <title>Aku Sayang Kamu</title>
+
+</head>
+
+<body>
+
+  <div class="row">
+    <div class="col-lg text-center kotak">
+      <button type="button" class="btn btn-lg btn-primary tombol py-4 px-5 shadow">Click Here!</button>
+      <h1 id="teks" class="d-none animate_animated animatepulse">Aku sayang kamu <i class="fas fa-heart text-danger animateanimated animateheartBeat animate_repeat-3"></i></h1>
+    </div>
+  </div>
+
+  <form action="" method="get">
+    <input type="hidden" name="by">
+  </form>
 
 
-document.querySelector(".tombol").addEventListener('click', function () {
-  Swal.fire("Hallo Pacarku", "Aku ada pertanyaan nih buat kamu yangg", "question").then(function () {
-    Swal.fire("Jawab yang jujur ya!").then(function () {
-      Swal.fire("Awas aja kalau kamu bohong", "", "error").then(function () {
+  <!-- Footer -->
+  <footer class="page-footer font-small blue fixed-bottom">
 
-        const {
-          value: name
-        } = Swal.fire({
-          title: 'Masukin nama kamu dulu',
-          input: 'text',
-          inputLabel: '',
-          showCancelButton: true,
-          inputValidator: (value) => {
-            if (!value) {
-              return 'Isi dulu dong beb'
-            } else {
-              nama = value;
-            }
-          }
-        }).then(function () {
-          const pertanyaan = Swal.fire({
-            title: `${nama} sayang ga sama ${sender}?`,
-            showDenyButton: true,
-            showCancelButton: false,
-            confirmButtonText: `Sayang`,
-            denyButtonText: `Enggak`,
-          }).then((result) => {
-            /* Read more about isConfirmed, isDenied below */
-            if (result.isConfirmed) {
-              Swal.fire(`${sender} juga sayang banget sama ${nama}`).then(function () {
-                Swal.fire({
-                  title: 'Seberapa sayang emangnya?',
-                  icon: 'question',
-                  input: 'range',
-                  inputLabel: 'Antara 1 - 100 ya',
-                  inputAttributes: {
-                    min: 1,
-                    max: 100,
-                    step: 1
-                  },
-                  inputValue: 50
-                }).then((e) => {
-                  val = e.value
-                  Swal.fire(`Makasih ya udah sayang sama ${sender} ${val}%`).then(function () {
-                    Swal.fire({
-                      title: `Sekarang ${nama} kangen ga sama ${sender}?`,
-                      showDenyButton: true,
-                      showCancelButton: false,
-                      confirmButtonText: `Kangen :(`,
-                      denyButtonText: `Enggak`,
-                    }).then((result) => {
-                      /* Read more about isConfirmed, isDenied below */
-                      if (result.isConfirmed) {
-                        Swal.fire(`Huhu iya ${sender} juga kangen ${nama} , makasihhh yaa`).then(function () {
-                          Swal.fire('Terakhir deh sayang').then(function () {
-                            Swal.fire('Coba klik ikon hati di paling bawah dong')
-                          })
-                        })
-                      } else if (result.isDenied) {
-                        Swal.fire('yahhh , emang ga kangen sama pacar sendiri', '', 'error').then(function () {
-                          Swal.fire('Yaudah deh okee sayangg :((')
-                        })
-                      }
-                    })
-                  })
-                })
-              })
-            } else if (result.isDenied) {
-              Swal.fire(`Yakin ga suka sama ${sender}?`, '', 'error').then(function () {
-                Swal.fire('Yaudah dehh okee sayang :((')
-              })
-            }
-          })
-        })
-      });
-    });
-  });
-});
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3 text-secondary"><small> Made with
+        <i class="fas fa-heart text-danger animate_animated animatebounce animate_repeat-3 hati"></i> by
+        <a href="https://www.instagram.com/febrianrendrars/"  class="text-decoration-none text-secondary">LOVE</a></small>
+    </div>
+    <!-- Copyright -->
 
+  </footer>
+  <!-- Footer -->
+
+
+
+
+  <!-- Optional JavaScript; choose one of the two! -->
+  <script src="script.js"></script>
+  <script src="https://kit.fontawesome.com/61e5120832.js" crossorigin="anonymous"></script>
+
+  <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.8.1/dist/sweetalert2.all.min.js"></script>
+
+  <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
